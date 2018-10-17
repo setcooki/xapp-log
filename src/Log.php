@@ -181,7 +181,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
         {
             return new $class($options);
         }else{
-            throw new Xapp_Log_Exception(xapp_sprintf(_("unable to create class for driver: %s"), $driver), 1150101);
+            throw new Xapp_Log_Exception(xapp_sprintf(__("unable to create class for driver: %s"), $driver), 1150101);
         }
     }
 
@@ -202,7 +202,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
         {
             return $class::instance($options);
         }else{
-            throw new Xapp_Log_Exception(xapp_sprintf(_("unable to create singleton instance for driver: %s"), $driver), 1150201);
+            throw new Xapp_Log_Exception(xapp_sprintf(__("unable to create singleton instance for driver: %s"), $driver), 1150201);
         }
     }
 
@@ -227,7 +227,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
             {
                 $this->_writer[$alias] = $writer;
             }else{
-                throw new Xapp_Log_Exception(xapp_sprintf(_("log writer under the same alias: %s already exists"), $alias), 1150301);
+                throw new Xapp_Log_Exception(xapp_sprintf(__("log writer under the same alias: %s already exists"), $alias), 1150301);
             }
         }else{
             $this->_writer[(string)$writer] = $writer;
@@ -278,7 +278,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
             {
                 return $this->_writer[$alias];
             }else{
-                throw new Xapp_Log_Exception(xapp_sprintf(_("log writer under the same alias: %s does not exist"), $alias), 1151401);
+                throw new Xapp_Log_Exception(xapp_sprintf(__("log writer under the same alias: %s does not exist"), $alias), 1151401);
             }
         }else{
             return $this->_writer;
@@ -302,7 +302,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
         }else if(is_subclass_of($class, __CLASS__)){
             $class::instance()->stack = array();
         }else{
-            throw new Xapp_Log_Exception(_("unable to reset logger since caller is obscured"), 1150501);
+            throw new Xapp_Log_Exception(__("unable to reset logger since caller is obscured"), 1150501);
         }
     }
 
@@ -323,7 +323,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
         }else if(is_subclass_of($class, __CLASS__)){
             $class::instance()->pause = true;
         }else{
-            throw new Xapp_Log_Exception(_("unable to pause logger since caller is obscured"), 1150601);
+            throw new Xapp_Log_Exception(__("unable to pause logger since caller is obscured"), 1150601);
         }
     }
 
@@ -344,7 +344,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
         }else if(is_subclass_of($class, __CLASS__)){
             $class::instance()->pause = false;
         }else{
-            throw new Xapp_Log_Exception(_("unable to resume logger since caller is obscured"), 1150701);
+            throw new Xapp_Log_Exception(__("unable to resume logger since caller is obscured"), 1150701);
         }
     }
 
@@ -427,7 +427,7 @@ abstract class Xapp_Log implements Xapp_Log_Interface, Xapp_Singleton_Interface
             {
                 return $this->_writer[$alias]->write($message, $params);
             }else{
-                throw new Xapp_Log_Exception(xapp_sprintf(_("log writer for alias: %s does not exist"), $alias), 1151001);
+                throw new Xapp_Log_Exception(xapp_sprintf(__("log writer for alias: %s does not exist"), $alias), 1151001);
             }
         }else{
             foreach($this->_writer as $k => $writer)

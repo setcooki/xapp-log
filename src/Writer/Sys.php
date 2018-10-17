@@ -37,7 +37,7 @@ class Xapp_Log_Writer_Sys extends Xapp_Log_Writer
         $this->_ident = trim((string)$ident);
         if(!openlog($this->_ident, LOG_CONS, $facility))
         {
-            throw new Xapp_Log_Writer_Exception(_("unable to open sys log with passed parameters"), 1210101);
+            throw new Xapp_Log_Writer_Exception(__("unable to open sys log with passed parameters"), 1210101);
         }
     }
 

@@ -39,7 +39,7 @@ class Xapp_Log_Writer_Std extends Xapp_Log_Writer
         {
             $this->std = constant($type);
         }else{
-            throw new Xapp_Log_Writer_Exception(xapp_sprintf(_("std type: %s is not defined"), $type), 1200101);
+            throw new Xapp_Log_Writer_Exception(xapp_sprintf(__("std type: %s is not defined"), $type), 1200101);
         }
     }
 

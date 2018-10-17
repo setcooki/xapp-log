@@ -82,7 +82,7 @@ class Xapp_Log_Writer_File extends Xapp_Log_Writer
         }
         if(!is_dir($this->dir) && !is_writable($this->dir))
         {
-            throw new Xapp_Log_Writer_Exception(xapp_sprintf(_("log file dir: %s does not exist or is not writable"), $this->dir), 1180101);
+            throw new Xapp_Log_Writer_Exception(xapp_sprintf(__("log file dir: %s does not exist or is not writable"), $this->dir), 1180101);
         }
         if($rotation === true)
         {
@@ -98,7 +98,7 @@ class Xapp_Log_Writer_File extends Xapp_Log_Writer
             {
                 $this->file = strftime($this->_format, time()) . '.log';
             }else{
-                throw new Xapp_Log_Writer_Exception(xapp_sprintf(_("rotation value: %s is not a valid rotation flag"), $this->_rotationMap), 1180102);
+                throw new Xapp_Log_Writer_Exception(xapp_sprintf(__("rotation value: %s is not a valid rotation flag"), $this->_rotationMap), 1180102);
             }
         }
     }
